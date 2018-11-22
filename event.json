@@ -1,0 +1,10 @@
+{
+  "ami": "amzn-ami-hvm-2018.03.0.20180811-x86_64-gp2",
+  "image_type": "machine",
+  "state": "available",
+  "owner2": "137112412989",
+  "description": "Amazon Linux AMI 2018.03.0.20180811 x86_64 HVM GP2",
+  "platform": null,
+  "owner": "amazon",
+  "id": "ami-0ff8a91507f77f867"
+}
