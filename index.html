@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>AMI Lookup</title>
+  <meta name="description" content="Search for currently available AWS AMI's">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <header id="header">
+    <div class="wrapper">
+      <h1><a href="#0">AMI Lookup</a></h1>
+      <form action="" id="search-form">
+        <div class="search-focus">
+          <select name="region-dropdown" id="region-select">
+            <optgroup label="US">
+              <option value="us-east-1">us-east-1</option>
+              <option value="us-east-2">us-east-2</option>
+              <option value="us-west-1">us-west-1</option>
+              <option value="us-west-2">us-west-2</option>
+            </optgroup>
+            <optgroup label="Asia Pacific">
+              <option value="us-west-2">ap-south-1</option>
+              <option value="us-west-2">ap-northeast-3</option>
+              <option value="us-west-2">ap-northeast-2</option>
+              <option value="us-west-2">ap-southeast-1</option>
+              <option value="us-west-2">ap-southeast-2</option>
+              <option value="us-west-2">ap-northeast-1</option>
+            </optgroup>
+            <optgroup label="Canada">
+              <option value="us-west-2">ca-central-1</option>
+            </optgroup>
+            <optgroup label="China">
+              <option value="us-west-2">cn-north-1</option>
+              <option value="us-west-2">cn-northwest-1</option>
+            </optgroup>
+            <optgroup label="EU">
+              <option value="us-west-2">eu-central-1</option>
+              <option value="us-west-2">eu-west-1</option>
+              <option value="us-west-2">eu-west-2</option>
+              <option value="us-west-2">eu-west-3</option>
+            </optgroup>
+            <optgroup label="South America">
+              <option value="us-west-2">sa-east-1</option>
+            </optgroup>
+            <optgroup label="GovCloud">
+              <option value="us-west-2">us-gov-east-1</option>
+              <option value="us-west-2">us-gov-west-1</option>
+            </optgroup>
+          </select>
+          <!-- <label for="search">Enter name or id</label> -->
+          <input type="text" id="search" form="search-form" type="search" autofocus mozactionhint="Search" placeholder="Enter name or id">
+          <button type="submit" form="search-form"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </header>
+  <section class="results">
+    <div class="wrapper">
+      <div class="clearfix">
+        <button class="depth-button">Test Depth Button</button>
+      </div>
+      <br>
+      <article>
+        <header class="clearfix">
+          <p>
+            <span class="success-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+            </span>
+            Available
+            <span class="small-text">Last checked MM/DD/YYYY: HH:MM</span>
+          </p>
+          <a href="#0" class="view-json">View .json</a>
+        </header>
+        <div class="content">
+            <h1>Amazon Linux AMI 2018.03.0.20180811 x86_64 HVM GP2</h1>
+            <h2>Owned by Amazon</h2>
+            <ul class="data">
+              <li><strong>ami</strong>amzn-ami-hvm-2018.03.0.20180811-x86_64-gp2</li>
+              <li><strong>image_type</strong>machine</li>
+              <li><strong>state</strong>available</li>
+              <li><strong>owner2</strong>137112412989</li>
+              <li><strong>description</strong>Amazon Linux AMI 2018.03.0.20180811 x86_64 HVM GP2</li>
+              <li><strong>platform</strong>null</li>
+              <li><strong>owner</strong>amazon</li>
+              <li><strong>id</strong>ami-0ff8a91507f77f867</li>
+            </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="js/vendor/jquery-3.3.1.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>

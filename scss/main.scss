@@ -1,0 +1,181 @@
+@import "normalize";
+@import "printstyles";
+@import "variables";
+@import "bits";
+@import "forms";
+@import "structure";
+@import "mediaqueries";
+
+/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 1.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+html {
+  color: $primary100;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body {
+  background: $primary700;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 1rem;
+}
+
+#header {
+  background: $primary300;
+  color: white;
+  overflow: hidden;
+
+  h1 {
+    font-size: 72px;
+    font-weight: 400;
+    margin: 4rem 0;
+    text-align: center;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+#search-form {
+  //box-shadow: 0 4px 20px rgba(0, 0, 0, .24);
+  margin-bottom: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 595px;
+
+  > div {
+    border-radius: 13px;
+    display: flex;
+    height: 60px;
+    overflow: hidden;
+    transition: .3s ease all;
+  }
+
+  #region-select {
+    background: white;
+    border: 1px solid transparent;
+    padding-left: 17px;
+    width: 126px;
+  }
+
+  #search {
+    border: 1px solid transparent;
+    flex-grow: 2;
+    padding-left: 23px;
+  }
+
+  button {
+    background: white;
+    border: 1px solid transparent;
+    width: 64px;
+
+    &:hover {
+      background: $gray700;
+    }
+
+    &:hover > svg {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    fill: black;
+    opacity: .54;
+    width: 22px;
+  }
+
+  .search-focus {
+    box-shadow: 0 0 0 2px #2E84FF,
+                0 4px 20px 2px rgba(#46A0E5, .68);
+  }
+}
+
+.results {
+  padding-top: 40px;
+}
+
+.results article header {
+  background: #f3f3f3;
+  padding: 14px 25px;
+
+  p {
+    float: left;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .small-text {
+    font-size: 1rem;
+    margin-left: 1rem;
+    opacity: .7;
+  }
+
+  .success-icon {
+    margin-right: 0.5rem;
+
+    svg {
+      background: #0BAC20;
+      border-radius: 100px;
+      fill: white;
+      height: 24px;
+      margin-top: -5px;
+      padding: 5px;
+      width: 24px;
+    }
+  }
+
+  .view-json {
+    background: #E1E1E1;
+    border-radius: 5px;
+    color: #464646;
+    float: right;
+    padding: 7px 14px;
+    text-decoration: none;
+
+    &:hover {
+      background: #CCCCCC;
+      color: black;
+    }
+  }
+}
+
+.results article {
+  background: white;
+  margin-bottom: 30px;
+
+  .content {
+    padding: 1rem 1.8rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+}
+
+.content .data {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-bottom: .8rem;
+  }
+
+  li strong {
+    margin-right: .2rem;
+  }
+}
