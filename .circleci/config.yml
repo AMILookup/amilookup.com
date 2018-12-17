@@ -23,6 +23,8 @@ jobs:
             npm install -g node-sass
             node-sass scss/ -o css/
             rm -rf scss/
+            rm -rf .git
+            rm -rf .circleci
       - run:
           name: Sync website to S3 Bucket
           command: aws s3 sync . s3://$S3_BUCKET --delete
