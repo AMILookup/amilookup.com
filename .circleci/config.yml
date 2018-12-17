@@ -8,7 +8,7 @@ jobs:
       - run:
           name: Install saas
           command: |
-            npm install -g node-sass
+            sudo npm install -g node-sass
             node-sass scss/ -o css/
             rm -rf scss/
       - run:
