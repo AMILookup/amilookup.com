@@ -27,7 +27,7 @@ jobs:
             rm -rf .circleci
       - run:
           name: Sync website to S3 Bucket
-          command: aws s3 sync . s3://$S3_BUCKET --delete
+          command: aws s3 sync . s3://$S3_BUCKET --delete --acl public-read
 
 # workflows:
 #   version: 2
