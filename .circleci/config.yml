@@ -8,7 +8,11 @@ jobs:
       - run:
           name: Install saas
           command: |
-            sudo npm install -g node-sass
+            mkdir ~/.npm-global
+            npm config set prefix '~/.npm-global'
+            export PATH=~/.npm-global/bin:$PATH
+            source ~/.profile
+            npm install -g node-sass
             node-sass scss/ -o css/
             rm -rf scss/
       - run:
