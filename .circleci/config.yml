@@ -5,14 +5,22 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
+      # Install AWS CLI
+      # - include aws cli ci docker:
+      #     https://github.com/circleci/circleci-images/issues/53
+      # - use global install for aws and pip instead of --user:
+      #     https://discuss.circleci.com/t/how-to-add-a-path-to-path-in-circle-2-0/11554
+      - run: sudo apt-get update && sudo apt-get install -qq -y python-pip libpython-dev
+      - run: curl -O https://bootstrap.pypa.io/get-pip.py && sudo python get-pip.py
+      - run: sudo pip install -q awscli --upgrade
       - run:
-          name: Install saas
+          name: Install/Compile saas
           command: |
             mkdir ~/.npm-global
             npm config set prefix '~/.npm-global'
             export PATH=~/.npm-global/bin:$PATH
             source ~/.profile
-            npm install -g node-sass aws-cli
+            npm install -g node-sass
             node-sass scss/ -o css/
             rm -rf scss/
       - run:
