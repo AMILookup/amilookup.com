@@ -16,9 +16,6 @@ $(function() {
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 
-var ami = document.getElementById("search").value;
-var region = document.getElementById("region-select").value;
-
 search.addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
     amilookup(ami, region);
@@ -33,6 +30,8 @@ function amilookup(ami, region) {
     "region": region
   };
 
+  var ami = document.getElementById("search").value;
+  var region = document.getElementById("region-select").value;
   var request = new XMLHttpRequest(),
     method = "POST",
     url = amiLookupAPI;
