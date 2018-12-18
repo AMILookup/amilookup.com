@@ -16,7 +16,7 @@ $(function() {
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 
-search = oForm.elements["search"].value;
+var search = document.getElementById["search"].value;
 var requestData = {
   "ami": search,
   "region": "us-east-1"
