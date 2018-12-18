@@ -15,10 +15,13 @@ $(function() {
 */
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
+
+search = oForm.elements["search"].value;
 var requestData = {
-  "ami": "ami-0ff8a91507f77f867",
+  "ami": search,
   "region": "us-east-1"
 };
+
 
 var request = new XMLHttpRequest(),
   method = "POST",
