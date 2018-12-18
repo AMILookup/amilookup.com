@@ -16,28 +16,39 @@ $(function() {
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 
-var search = document.getElementById("search").value;
-var requestData = {
-  "ami": search,
-  "region": "us-east-1"
-};
+var ami = document.getElementById("search").value;
+var region = document.getElementById("region-select").value;
 
-
-var request = new XMLHttpRequest(),
-  method = "POST",
-  url = amiLookupAPI;
-console.log(method, url);
-
-request.open(method, url);
-request.responseType = 'json';
-
-request.setRequestHeader("Content-Type", "application/json");
-
-request.onreadystatechange = function() {
-  if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-    console.log(request.response);
+search.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    amilookup(ami, region);
   }
-}
+})
 
-request.send(JSON.stringify(requestData));
-console.log(request);
+search.onclick = amilookup(ami, region);
+
+function amilookup(ami, region) {
+  var requestData = {
+    "ami": search,
+    "region": region
+  };
+
+  var request = new XMLHttpRequest(),
+    method = "POST",
+    url = amiLookupAPI;
+  console.log(method, url);
+
+  request.open(method, url);
+  request.responseType = 'json';
+
+  request.setRequestHeader("Content-Type", "application/json");
+
+  request.onreadystatechange = function() {
+    if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+      console.log(request.response);
+    }
+  }
+
+  request.send(JSON.stringify(requestData));
+  console.log(request);
+}
