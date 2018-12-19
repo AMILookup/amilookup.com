@@ -20,10 +20,9 @@ var requestData = {
   "region": region
 };
 
-var ami = document.getElementById("search").value;
-var region = document.getElementById("region-select").value;
-
-function amilookup(ami, region) {
+function amilookup() {
+  var ami = document.getElementById("search").value;
+  var region = document.getElementById("region-select").value;
   console.log(ami);
   console.log(region);
   var request = new XMLHttpRequest(),
@@ -49,8 +48,8 @@ function amilookup(ami, region) {
 // Something about this chunk of code causes it to run on page load.
 search.addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
-    amilookup(ami, region);
+    amilookup();
   }
 });
 
-searchbutton.addEventListener("click", amilookup(ami, region));
+searchbutton.addEventListener("click", amilookup());
