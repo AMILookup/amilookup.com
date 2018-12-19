@@ -25,13 +25,13 @@ var region = document.getElementById("region-select").value;
 console.log(ami);
 console.log(region);
 
-search.addEventListener("keydown", function (e) {
-  if (e.keyCode === 13) {
-    amilookup(ami, region);
-  }
-})
-
-search.onclick = amilookup(ami, region);
+// search.addEventListener("keydown", function (e) {
+//   if (e.keyCode === 13) {
+//     amilookup(ami, region);
+//   }
+// })
+//
+// search.onclick = amilookup(ami, region);
 
 function amilookup(ami, region) {
 
@@ -54,5 +54,3 @@ function amilookup(ami, region) {
   request.send(JSON.stringify(requestData));
   console.log(request);
 };
-
-amilookup(ami, region);
