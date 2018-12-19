@@ -51,6 +51,6 @@ search.addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
     amilookup(ami, region);
   }
-})
+});
 
-search.onclick = amilookup(ami, region);
+search.addEventListener("click", amilookup(ami, region));
