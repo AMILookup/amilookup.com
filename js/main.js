@@ -53,4 +53,4 @@ search.addEventListener("keydown", function (e) {
   }
 });
 
-search.addEventListener("click", amilookup(ami, region));
+searchbutton.addEventListener("click", amilookup(ami, region));
