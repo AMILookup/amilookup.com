@@ -22,6 +22,8 @@ var requestData = {
 
 var ami = document.getElementById("search").value;
 var region = document.getElementById("region-select").value;
+console.log(ami);
+console.log(region);
 
 search.addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
