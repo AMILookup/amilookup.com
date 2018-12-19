@@ -22,19 +22,20 @@ var requestData = {
 
 var ami = document.getElementById("search").value;
 var region = document.getElementById("region-select").value;
-console.log(ami);
-console.log(region);
 
-// search.addEventListener("keydown", function (e) {
-//   if (e.keyCode === 13) {
-//     amilookup(ami, region);
-//   }
-// })
-//
+
+// Something about this chunk of code causes it to run on page load.
+search.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    amilookup(ami, region);
+  }
+})
+
 // search.onclick = amilookup(ami, region);
 
 function amilookup(ami, region) {
-
+  console.log(ami);
+  console.log(region);
   var request = new XMLHttpRequest(),
     method = "POST",
     url = amiLookupAPI;
