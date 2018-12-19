@@ -23,16 +23,6 @@ var requestData = {
 var ami = document.getElementById("search").value;
 var region = document.getElementById("region-select").value;
 
-
-// Something about this chunk of code causes it to run on page load.
-search.addEventListener("keydown", function (e) {
-  if (e.keyCode === 13) {
-    amilookup(ami, region);
-  }
-})
-
-// search.onclick = amilookup(ami, region);
-
 function amilookup(ami, region) {
   console.log(ami);
   console.log(region);
@@ -55,3 +45,12 @@ function amilookup(ami, region) {
   request.send(JSON.stringify(requestData));
   console.log(request);
 };
+
+// Something about this chunk of code causes it to run on page load.
+search.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    amilookup(ami, region);
+  }
+})
+
+search.onclick = amilookup(ami, region);
