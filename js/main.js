@@ -17,14 +17,16 @@ $(function() {
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 
 function amilookup() {
-  var requestData = {
-    "ami": search,
-    "region": region
-  };
   var ami = document.getElementById("search").value;
   var region = document.getElementById("region-select").value;
   console.log(ami);
   console.log(region);
+  
+  var requestData = {
+    "ami": ami,
+    "region": region
+  };
+
   var request = new XMLHttpRequest(),
     method = "POST",
     url = amiLookupAPI;
