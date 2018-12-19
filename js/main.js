@@ -17,11 +17,11 @@ $(function() {
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 
 function amilookup() {
-  var ami = document.getElementById("search").value;
+  var ami = document.getElementById("search");
   var region = document.getElementById("region-select").value;
   console.log(ami);
   console.log(region);
-  
+
   var requestData = {
     "ami": ami,
     "region": region
