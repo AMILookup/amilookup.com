@@ -15,6 +15,13 @@ $(function() {
 */
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
+var requestData = {
+  "ami": search,
+  "region": region
+};
+
+var ami = document.getElementById("search").value;
+var region = document.getElementById("region-select").value;
 
 search.addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
@@ -25,13 +32,7 @@ search.addEventListener("keydown", function (e) {
 search.onclick = amilookup(ami, region);
 
 function amilookup(ami, region) {
-  var requestData = {
-    "ami": search,
-    "region": region
-  };
 
-  var ami = document.getElementById("search").value;
-  var region = document.getElementById("region-select").value;
   var request = new XMLHttpRequest(),
     method = "POST",
     url = amiLookupAPI;
@@ -50,4 +51,6 @@ function amilookup(ami, region) {
 
   request.send(JSON.stringify(requestData));
   console.log(request);
-}
+};
+
+amilookup(ami, region);
