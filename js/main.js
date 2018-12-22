@@ -52,8 +52,6 @@ function amiLookup(ami, region) {
     "region": region
   };
 
-  console.log(method, url);
-
   xhr.open(method, url);
   xhr.responseType = 'json';
 
@@ -61,7 +59,6 @@ function amiLookup(ami, region) {
 
   xhr.onreadystatechange = function() {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      console.log(xhr.response);
       responseData = xhr.response;
 
       parseAMIOutput(responseData);
