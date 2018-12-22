@@ -1,3 +1,7 @@
+/* Search bar focus */
+$(function() {
+  const search = $("#search");
+  const searchWrap = $("#search-form > div");
 
   $(search).focusin(function() {
     searchWrap.addClass("search-focus");
@@ -7,45 +11,43 @@
     searchWrap.removeClass("search-focus");
   });
 });
-*/
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
-var requestData = {
-  "ami": "ami-0ff8a91507f77f867",
-  "region": "us-east-1"
-};
+var form = document.getElementById("search-form");
 var responseData;
-
-var request = new XMLHttpRequest(),
+var xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
-console.log(method, url);
 
-request.open(method, url);
-request.responseType = 'json';
+function amiLookup(ami, region) {
+  var requestData = {
+    "ami": ami,
+    "region": region
+  };
 
-request.setRequestHeader("Content-Type", "application/json");
+  
+  console.log(method, url);
 
-request.onreadystatechange = function() {
-  if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-    console.log(request.response);
-    responseData = request.response;
+  xhr.open(method, url);
+  xhr.responseType = 'json';
 
-    populateContent(responseData);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      console.log(xhr.response);
+      responseData = xhr.response;
+      console.log(responseData.body);
+    }
   }
+
+  xhr.send(JSON.stringify(requestData));
 }
 
-request.send(JSON.stringify(requestData));
+form.addEventListener("submit", function(event) {
+  var amiData = document.getElementById("search").value;
+  var regionData = document.getElementById("region-select").value;
+  event.preventDefault();
 
-function populateContent(jsonObj) {
-  var resultsPlace = document.getElementById("results-start").innerHTML;
-
-  for(var i = 0; i < jsonObj.length; i++) {
-    var myList = resultsPlace.createElement("<ul>");
-    var listItem = resultsPlace.createElement("<li>");
-    listItem.textContent = jsonObj[i];
-    listItem.appendChild("</li>");
-    myList.appendChild("</ul>");
-    console.log("looping...");
-  }
-}
+  amiLookup(amiData, regionData);
+});
