@@ -19,13 +19,39 @@ var xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
 
+function parseAMIOutput(responseData) {
+  body = (responseData.body);
+  console.log(body);
+  for (var i in body) {
+    var resultsHeader = document.getElementsByClassName("results-header");
+    var resultsComponent = document.getElementsByClassName("content");
+    var rowdiv = document.createElement("div");
+    var keyDiv = document.createElement("div");
+    var valueDiv = document.createElement("div");
+
+    rowdiv.classList.add("row");
+    keyDiv.classList.add("key");
+    valueDiv.classList.add("value");
+
+    rowdiv.appendChild(keyDiv);
+    rowdiv.appendChild(valueDiv);
+
+    if (body.hasOwnProperty(i)) {
+      var keycontent = i;
+      var valuecontent = body[i];
+      keyDiv.innerHTML = keycontent;
+      valueDiv.innerHTML = valuecontent;
+    }
+    resultsComponent[0].appendChild(rowdiv);
+  }
+};
+
 function amiLookup(ami, region) {
   var requestData = {
     "ami": ami,
     "region": region
   };
 
-  
   console.log(method, url);
 
   xhr.open(method, url);
@@ -37,12 +63,13 @@ function amiLookup(ami, region) {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       console.log(xhr.response);
       responseData = xhr.response;
-      console.log(responseData.body);
+
+      parseAMIOutput(responseData);
     }
   }
 
   xhr.send(JSON.stringify(requestData));
-}
+};
 
 form.addEventListener("submit", function(event) {
   var amiData = document.getElementById("search").value;
