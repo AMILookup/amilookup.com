@@ -1,5 +1,5 @@
 .results-component header {
-  background: #f3f3f3;
+  background: $componentHeader;
   padding: 14px 25px;
 
   p {
@@ -9,6 +9,7 @@
   }
 
   .small-text {
+    color: $richText;
     font-size: 1rem;
     margin-left: 1rem;
     opacity: .7;
@@ -29,22 +30,22 @@
   }
 
   .view-json {
-    background: #E1E1E1;
+    background: $componentBg;
     border-radius: 5px;
-    color: #464646;
+    color: $text;
     float: right;
     padding: 7px 14px;
     text-decoration: none;
 
     &:hover {
-      background: #CCCCCC;
-      color: black;
+      background: #636898;
+      color: white;
     }
   }
 }
 
 .results-component {
-  background: white;
+  background: $componentBg;
   margin-bottom: 30px;
 
   .content {

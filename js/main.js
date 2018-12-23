@@ -1,4 +1,5 @@
 /* Search bar focus */
+/*
 $(function() {
   const search = $("#search");
   const searchWrap = $("#search-form > div");
@@ -11,6 +12,17 @@ $(function() {
     searchWrap.removeClass("search-focus");
   });
 });
+*/
+
+$( function() {
+  $( "#region-select" ).selectmenu({
+    width: false,
+    // This just pushes the menu away from the button a little bit.
+    position: { my : "left top+20", at : "left bottom" },
+    // Adds a specific class to override the default rounded corners.
+    classes: { "ui-selectmenu-button" : "ui-corner-none" }
+  });
+} );
 
 var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
 var form = document.getElementById("search-form");

@@ -1,33 +1,18 @@
 /* Colors
    ========================================================================== */
 
-/* Primaries */
-$primary100: #040E1A;
-$primary200: #253143;
-$primary300: #3A4C63;
-$primary400: #4D6485;
-$primary500: #889BB7;
-$primary600: #AEBDD4;
-$primary700: #DDE4EE;
+/* Main Colors (Ordered Light to Dark */
+$text:             #E7E8FE;
+$richText:         #BEC0EF;
+$uberRichText:     #B4B7FF;
+$pageBg:           #6C709E;
+$componentBg:      #545988;
+$searchBg:         #4C507E;
+$regionBg:         #535785;
+$componentHeader:  #434772;
+$headerBg:         #3B3B6E;
+$jsonBtnHover:       #636898;
 
-/* Accents */
-$accent100: #6A3A00;
-$accent200: #9A5603;
-$accent300: #C77A1B;
-$accent400: #F89820;
-$accent500: #FFBD6A;
-$accent600: #FFD5A1;
-$accent700: #FFEED8;
-
-/* Cool Grays */
-$gray100: #28292B;
-$gray200: #414448;
-$gray300: #5E6268;
-$gray400: #737880;
-$gray500: #989FAA;
-$gray600: #BEC5D1;
-$gray700: #EBEEF2;
- 
 /* Greens */
 $green100: #023400;
 $green200: #024400;
@@ -54,3 +39,8 @@ $alert400: #B18817;
 $alert500: #CFAA42;
 $alert600: #E1C985;
 $alert700: #F9F2DC;
+
+/* Border Radius
+   ========================================================================== */
+
+$searchRadius: 13px;
