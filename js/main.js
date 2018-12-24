@@ -24,7 +24,7 @@ $( function() {
   });
 } );
 
-var amiLookupAPI = "https://1atjjwt237.execute-api.us-east-1.amazonaws.com/dev/ami";
+var amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
 var form = document.getElementById("search-form");
 var responseData;
 var xhr = new XMLHttpRequest(),
@@ -33,7 +33,6 @@ var xhr = new XMLHttpRequest(),
 
 function parseAMIOutput(responseData) {
   body = (responseData.body);
-  console.log(body);
   for (var i in body) {
     var resultsHeader = document.getElementsByClassName("results-header");
     var resultsComponent = document.getElementsByClassName("content");
@@ -72,10 +71,13 @@ function amiLookup(ami, region) {
   xhr.onreadystatechange = function() {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       responseData = xhr.response;
-
       parseAMIOutput(responseData);
     }
-  }
+    else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
+      responseData = xhr.response;
+      parseAMIOutput(responseData);
+    }
+  };
 
   xhr.send(JSON.stringify(requestData));
 };
@@ -87,3 +89,5 @@ form.addEventListener("submit", function(event) {
 
   amiLookup(amiData, regionData);
 });
+
+amiLookup("ami-0ff8a91507f77f867", "us-east-1")
