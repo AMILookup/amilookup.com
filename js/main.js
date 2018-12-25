@@ -89,5 +89,3 @@ form.addEventListener("submit", function(event) {
 
   amiLookup(amiData, regionData);
 });
-
-amiLookup("ami-0ff8a91507f77f867", "us-east-1")
