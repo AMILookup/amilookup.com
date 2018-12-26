@@ -31,8 +31,10 @@
 
   .view-json {
     background: $componentBg;
+    border: 1px solid transparent;
     border-radius: 5px;
     color: $text;
+    cursor: pointer;
     float: right;
     padding: 7px 14px;
     text-decoration: none;
