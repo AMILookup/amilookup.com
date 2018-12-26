@@ -25,7 +25,6 @@ $( function() {
 } );
 
 var amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
-var form = document.getElementById("search-form");
 var responseData;
 var xhr = new XMLHttpRequest(),
   method = "POST",
@@ -71,10 +70,12 @@ function amiLookup(ami, region) {
   xhr.onreadystatechange = function() {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       responseData = xhr.response;
+
       parseAMIOutput(responseData);
     }
     else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
       responseData = xhr.response;
+
       parseAMIOutput(responseData);
     }
   };
@@ -82,6 +83,7 @@ function amiLookup(ami, region) {
   xhr.send(JSON.stringify(requestData));
 };
 
+var form = document.getElementById("search-form");
 form.addEventListener("submit", function(event) {
   var amiData = document.getElementById("search").value;
   var regionData = document.getElementById("region-select").value;
@@ -89,3 +91,10 @@ form.addEventListener("submit", function(event) {
 
   amiLookup(amiData, regionData);
 });
+// For some reason the below code doesnt work....
+let viewjson = document.getElementById('viewjson');
+viewjson.addEventListener("submit", function(event) {
+  event.preventDefault();
+  console.log("Print JSON");
+  console.log(responseData);
+})
