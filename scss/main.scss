@@ -33,7 +33,7 @@ body {
 }
 
 #header {
-  background: $headerBg;
+  background: $headerBg url("../img/circuit-board-purple.svg") top left repeat;
   color: $text;
 
   h1 {
