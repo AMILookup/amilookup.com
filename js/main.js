@@ -92,7 +92,7 @@ form.addEventListener("submit", function(event) {
   amiLookup(amiData, regionData);
 });
 // For some reason the below code doesnt work....
-let viewjson = document.getElementById('viewjson');
+var viewjson = document.getElementById('view-json');
 viewjson.addEventListener("submit", function(event) {
   event.preventDefault();
   console.log("Print JSON");
