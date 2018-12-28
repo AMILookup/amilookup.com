@@ -1,3 +1,22 @@
+.results-component {
+  background: $componentBg;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 30px;
+
+  .content {
+    padding: 1rem 1.8rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+}
+
 .results-component header {
   background: $componentHeader;
   padding: 14px 25px;
@@ -43,23 +62,6 @@
       background: #636898;
       color: white;
     }
-  }
-}
-
-.results-component {
-  background: $componentBg;
-  margin-bottom: 30px;
-
-  .content {
-    padding: 1rem 1.8rem;
-  }
-
-  h1 {
-    margin: 0;
-  }
-
-  h2 {
-    font-size: 1.7rem;
   }
 }
 

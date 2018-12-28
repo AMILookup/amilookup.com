@@ -1,5 +1,4 @@
 /* Search bar focus */
-/*
 $(function() {
   const search = $("#search");
   const searchWrap = $("#search-form > div");
@@ -12,7 +11,6 @@ $(function() {
     searchWrap.removeClass("search-focus");
   });
 });
-*/
 
 $( function() {
   $( "#region-select" ).selectmenu({
@@ -24,20 +22,21 @@ $( function() {
   });
 } );
 
-var amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
-var responseData;
-var xhr = new XMLHttpRequest(),
+// Actual AMI Lookup stuff starts here.
+const amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
+const xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
 
 function parseAMIOutput(responseData) {
   body = (responseData.body);
-  for (var i in body) {
-    var resultsHeader = document.getElementsByClassName("results-header");
-    var resultsComponent = document.getElementsByClassName("content");
-    var rowdiv = document.createElement("div");
-    var keyDiv = document.createElement("div");
-    var valueDiv = document.createElement("div");
+  for (let i in body) {
+    const resultsComponent = document.querySelector(".results-component");
+    const resultsHeader = document.getElementsByClassName("results-header");
+    const resultsContent = document.getElementsByClassName("content");
+    const rowdiv = document.createElement("div");
+    const keyDiv = document.createElement("div");
+    const valueDiv = document.createElement("div");
 
     rowdiv.classList.add("row");
     keyDiv.classList.add("key");
@@ -47,17 +46,21 @@ function parseAMIOutput(responseData) {
     rowdiv.appendChild(valueDiv);
 
     if (body.hasOwnProperty(i)) {
-      var keycontent = i;
-      var valuecontent = body[i];
+      const keycontent = i;
+      const valuecontent = body[i];
       keyDiv.innerHTML = keycontent;
       valueDiv.innerHTML = valuecontent;
     }
-    resultsComponent[0].appendChild(rowdiv);
+    
+    resultsContent[0].appendChild(rowdiv);
+    resultsComponent.classList.remove("hidden");
   }
+
+  
 };
 
 function amiLookup(ami, region) {
-  var requestData = {
+  const requestData = {
     "ami": ami,
     "region": region
   };
@@ -83,16 +86,17 @@ function amiLookup(ami, region) {
   xhr.send(JSON.stringify(requestData));
 };
 
-var form = document.getElementById("search-form");
+const form = document.getElementById("search-form");
 form.addEventListener("submit", function(event) {
-  var amiData = document.getElementById("search").value;
-  var regionData = document.getElementById("region-select").value;
+  const amiData = document.getElementById("search").value;
+  const regionData = document.getElementById("region-select").value;
   event.preventDefault();
 
   amiLookup(amiData, regionData);
 });
+
 // For some reason the below code doesnt work....
-var viewjson = document.getElementById('view-json');
+const viewjson = document.getElementById('view-json');
 viewjson.addEventListener("submit", function(event) {
   event.preventDefault();
   console.log("Print JSON");
