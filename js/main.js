@@ -28,10 +28,20 @@ const xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
 
+
+$.deleteStuff = function() {
+  // Handle Component
+  $(".results-component").removeClass("hidden");
+
+  // Delete old rows
+  $(".row").remove();
+};
+
+
 function parseAMIOutput(responseData) {
   body = (responseData.body);
+
   for (let i in body) {
-    const resultsComponent = document.querySelector(".results-component");
     const resultsHeader = document.getElementsByClassName("results-header");
     const resultsContent = document.getElementsByClassName("content");
     const rowdiv = document.createElement("div");
@@ -44,18 +54,25 @@ function parseAMIOutput(responseData) {
 
     rowdiv.appendChild(keyDiv);
     rowdiv.appendChild(valueDiv);
+    
+    console.log(body)
 
     if (body.hasOwnProperty(i)) {
+      console.log(i)
       const keycontent = i;
-      const valuecontent = body[i];
+      var valuecontent = body[i];
+      if (i == "BlockDeviceMappings") {
+        valuecontent = JSON.stringify(body[i][0]);
+        // Used potentially for manipulating json later on
+        // valuecontent = JSON.parse(valuecontent);
+      }
+      console.log(i, valuecontent)
       keyDiv.innerHTML = keycontent;
       valueDiv.innerHTML = valuecontent;
     }
     
     resultsContent[0].appendChild(rowdiv);
-    resultsComponent.classList.remove("hidden");
   }
-
   
 };
 
@@ -74,11 +91,13 @@ function amiLookup(ami, region) {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       responseData = xhr.response;
 
+      $.deleteStuff();
       parseAMIOutput(responseData);
     }
     else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
       responseData = xhr.response;
-
+      
+      $.deleteStuff();
       parseAMIOutput(responseData);
     }
   };
