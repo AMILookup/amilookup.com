@@ -52,12 +52,10 @@ body {
 }
 
 #search-form {
-  border-radius: $searchRadius;
   box-shadow: 0 2px 4px rgba(black, .24),0 4px 20px rgba(black, .24);
   margin-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
   width: 595px;
 
   > div {
@@ -106,11 +104,11 @@ body {
     opacity: .75;
     width: 22px;
   } 
-/*
+
   .search-focus {
-    box-shadow: 0 0 0 2px #2E84FF,
-                0 4px 20px 2px rgba(#46A0E5, .68);
-  }*/
+    box-shadow: 0 0 0 2px #0099FF, 
+                0 0 20px 2px rgba(#57BCFF, .41);
+  }
 }
 
 .results {
