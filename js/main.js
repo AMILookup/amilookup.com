@@ -42,7 +42,7 @@ function parseAMIOutput(responseData) {
   body = (responseData.body);
 
   for (let i in body) {
-    const resultsHeader = document.getElementsByClassName("results-header");
+    // const resultsHeader = document.getElementsByClassName("results-header");
     const resultsContent = document.getElementsByClassName("content");
     const rowdiv = document.createElement("div");
     const keyDiv = document.createElement("div");
@@ -54,19 +54,13 @@ function parseAMIOutput(responseData) {
 
     rowdiv.appendChild(keyDiv);
     rowdiv.appendChild(valueDiv);
-    
-    console.log(body)
 
     if (body.hasOwnProperty(i)) {
-      console.log(i)
       const keycontent = i;
       var valuecontent = body[i];
       if (i == "BlockDeviceMappings") {
-        valuecontent = JSON.stringify(body[i][0]);
-        // Used potentially for manipulating json later on
-        // valuecontent = JSON.parse(valuecontent);
+        valuecontent = JSON.stringify(body[i][0], null, 2);
       }
-      console.log(i, valuecontent)
       keyDiv.innerHTML = keycontent;
       valueDiv.innerHTML = valuecontent;
     }
