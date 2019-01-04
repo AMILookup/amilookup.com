@@ -31,18 +31,16 @@ jobs:
 
 workflows:
   version: 2
-  build_and_deploy:
+  deploy-develop:
     jobs:
-      - deploy-develop:
-          requires:
-            - build_and_deploy
+      - build_and_deploy:
           filters:
             branches:
               only: develop
           context: develop
-      - deploy-production:
-          requires:
-            - build_and_deploy
+  deploy-production:
+    jobs:
+      - build_and_deploy:
           filters:
             branches:
               only: master
