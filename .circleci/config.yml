@@ -29,14 +29,21 @@ jobs:
           name: Sync website to S3 Bucket
           command: aws s3 sync . s3://$S3_BUCKET --delete --acl public-read
 
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
-#             - build
-#           filters:
-#             branches:
-#               only: master
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - deploy-develop:
+          requires:
+            - build
+          filters:
+            branches:
+              only: develop
+          context: develop
+      - deploy-production:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+          context: production
