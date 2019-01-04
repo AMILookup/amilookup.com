@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build_and_deploy:
     docker:
       - image: circleci/node
     steps:
@@ -29,14 +29,19 @@ jobs:
           name: Sync website to S3 Bucket
           command: aws s3 sync . s3://$S3_BUCKET --delete --acl public-read
 
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
-#             - build
-#           filters:
-#             branches:
-#               only: master
+workflows:
+  version: 2
+  deploy-develop:
+    jobs:
+      - build_and_deploy:
+          filters:
+            branches:
+              only: develop
+          context: develop
+  deploy-production:
+    jobs:
+      - build_and_deploy:
+          filters:
+            branches:
+              only: master
+          context: production
