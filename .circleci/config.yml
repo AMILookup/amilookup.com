@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build_and_deploy:
     docker:
       - image: circleci/node
     steps:
@@ -35,14 +35,14 @@ workflows:
     jobs:
       - deploy-develop:
           requires:
-            - build
+            - build_and_deploy
           filters:
             branches:
               only: develop
           context: develop
       - deploy-production:
           requires:
-            - build
+            - build_and_deploy
           filters:
             branches:
               only: master
