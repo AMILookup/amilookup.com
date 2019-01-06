@@ -1,9 +1,10 @@
 # amilookup.com
 [![](https://img.shields.io/discord/515356357289836544.svg?style=popout)](https://discord.gg/MyvcpBA)
 [![CircleCI](https://circleci.com/gh/AMILookup/amilookup.com/tree/develop.svg?style=svg)](https://circleci.com/gh/AMILookup/amilookup.com/tree/develop)
+
 This repo is amilookup.com front end code.
 
-amilookup.com back end code here: [https://github.com/AMILookup/amilookup.com-infra](https://github.com/AMILookup/amilookup.com-infra)
+amilookup.com-infra back end code here: [https://github.com/AMILookup/amilookup.com-infra](https://github.com/AMILookup/amilookup.com-infra)
 
 ## Getting Started
 
@@ -18,6 +19,7 @@ Give examples
 ```
 
 ### Installing
+__This section needs more work__
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -36,8 +38,9 @@ until finished
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
+__This section needs more work__
 
-Explain how to run the automated tests for this system
+Currently we do not have any automated tests.  However things like linters will be introduced in the future.
 
 ### Break down into end to end tests
 
@@ -47,17 +50,10 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
 
-Deployments are 100% handled by [CircleCI](https://circleci.com/gh/AMILookup/amilookup.com/)
+Deployments are 100% handled by [CircleCI](https://circleci.com/gh/AMILookup/amilookup.com/).
+The deployment configuration file is [here](.circleci/config.yml).
 
 ## Built With
 
@@ -66,7 +62,7 @@ Deployments are 100% handled by [CircleCI](https://circleci.com/gh/AMILookup/ami
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -77,11 +73,11 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Alex Jackson** - *Primary Contributor* - [ajack764](https://github.com/ajack764)
 * **Andrew Jackson** - *Secondary Contributor* - [lordmuffin](https://github.com/lordmuffin)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/amilookup/amilookup.com/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the GNU3 Public License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU3 Public License - see the [LICENSE.md](LICENSE) file for details
 
 ## Acknowledgments
 
