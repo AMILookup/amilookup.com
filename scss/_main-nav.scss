@@ -1,0 +1,81 @@
+nav {
+  border-bottom: 4px solid rgba(white, .1);
+  margin-bottom: 4rem;
+  @extend .clearfix;
+
+  h1 {
+    margin: 0;
+  }
+  
+  .title {
+    color: $richText;
+    display: inline-block;
+    font-size: 2rem;
+    padding: 0;
+    text-decoration: none;
+    padding: 15px 0;
+  }
+
+  .pull-right {
+    a {
+      color: $richText;
+      display: inline-block;
+      font-size: 1.4rem;
+      margin: 0 20px;
+      padding: 21px 0;
+      position: relative;
+      text-decoration: none;
+
+      &:after {
+        background: $link;
+        bottom: -4px;
+        content: "";
+        height: 4px;
+        left: 50%;
+        position: absolute;
+        transition: width .2s ease, left .2s ease;
+        width: 0;
+      }
+  
+      &:hover {
+        color: $link;
+      }
+  
+      &:hover:after {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  #github {
+    svg {
+      fill: $richText;
+      height: auto;
+      width: 60px;
+    }
+
+    &:hover > svg {
+      fill: $link;
+    }
+  }
+
+  #patreon {
+    padding-bottom: 14px;
+    margin-right: 0;
+
+    svg {
+      fill: $richText;
+      height: auto;
+      width: 105px;
+    }
+
+    &:hover > svg {
+      fill: $link;
+    }
+
+    &:hover:after {
+      bottom: -4px;
+    }
+  }
+}
