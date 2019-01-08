@@ -1,0 +1,54 @@
+html.four-oh-four {
+  body {
+    background: $headerBg url("../img/circuit-board-purple.svg") top left repeat !important;
+    font-family: sans-serif;
+    height: 100%;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(black, .2);
+    width: 100%;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  div {
+    align-self: center;
+    margin: auto;
+  }
+  
+  h1 {
+    color: $text;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+  
+  p {
+    color: $richText;
+    font-size: 2rem;
+    margin: 0 auto;
+    width: 400px;
+  }
+  
+  @media only screen and (max-width: 400px) {
+  
+    body, p {
+        width: 95%;
+    }
+  
+    h1 {
+        font-size: 2rem;
+        margin: 0 0 0.3em;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  
+  }
+}

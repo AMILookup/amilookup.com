@@ -1,0 +1,88 @@
+.results-component {
+  background: $componentBg;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  margin-bottom: 30px;
+
+  .content {
+    padding: 1rem 1.8rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+}
+
+.results-component header {
+  background: $componentHeader;
+  padding: 14px 25px;
+
+  p {
+    float: left;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .small-text {
+    color: $richText;
+    font-size: 1rem;
+    margin-left: 1rem;
+    opacity: .7;
+  }
+
+  .success-icon {
+    margin-right: 0.5rem;
+
+    svg {
+      background: #0BAC20;
+      border-radius: 100px;
+      fill: white;
+      height: 24px;
+      margin-top: -5px;
+      padding: 5px;
+      width: 24px;
+    }
+  }
+
+  .view-json {
+    background: $componentBg;
+    border: 1px solid transparent;
+    border-radius: $borderRadius;
+    color: $text;
+    cursor: pointer;
+    float: right;
+    padding: 7px 14px;
+    text-decoration: none;
+
+    &:hover {
+      background: #636898;
+      color: white;
+    }
+  }
+}
+
+.results-component .row {
+  display: flex;
+  margin-bottom: 1rem;
+
+  .key {
+    font-weight: bold;
+    margin-right: 1rem;
+    min-width: 20%; // Setup a variable for this?
+    text-align: right;
+    width: 20%; // Setup a variable for this?
+  }
+
+  .value {
+    flex-grow: 2;
+  }
+}
+
+.results-component .content {
+  font-size: 1.2rem;
+  padding: 1rem 0 1rem 0;
+}
