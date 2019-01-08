@@ -17,6 +17,7 @@ nav {
   }
 
   .pull-right {
+
     a {
       color: $richText;
       display: inline-block;
@@ -45,6 +46,10 @@ nav {
         left: 0;
         width: 100%;
       }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -62,7 +67,6 @@ nav {
 
   #patreon {
     padding-bottom: 14px;
-    margin-right: 0;
 
     svg {
       fill: $richText;
