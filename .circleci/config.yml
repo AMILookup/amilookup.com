@@ -29,7 +29,7 @@ jobs:
           name: Return APIGateway URL from CFN and write to file.  Replace API Gateway URL in main.js
           command: |
             apigatewayurl=`aws cloudformation describe-stacks --region $AWS_REGION | jq -e '.Stacks[].Outputs[]? | select(.OutputValue | contains("execute-api")) | .OutputValue'`
-            sed -i 's,const amiLookupAPI = .*,const amiLookupAPI = "$apigatewayurl",g' js/main.js
+            sed -i 's,const amiLookupAPI = .*,const amiLookupAPI = '"$apigatewayurl"',g' js/main.js
       - run:
           name: Sync website to S3 Bucket
           command: aws s3 sync . s3://$S3_BUCKET --delete --acl public-read
