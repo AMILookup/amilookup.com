@@ -12,16 +12,6 @@ $(function() {
   });
 });
 
-$( function() {
-  $( "#region-select" ).selectmenu({
-    width: false,
-    // This just pushes the menu away from the button a little bit.
-    position: { my : "left top+20", at : "left bottom" },
-    // Adds a specific class to override the default rounded corners.
-    classes: { "ui-selectmenu-button" : "ui-corner-none" }
-  });
-} );
-
 // Actual AMI Lookup stuff starts here.
 const amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
 const xhr = new XMLHttpRequest(),
