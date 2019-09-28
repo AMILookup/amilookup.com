@@ -41,49 +41,50 @@
       <form action="" id="search-form">
         <div class="search-focus">
           <select name="region-dropdown" id="region-select">
+            <option value="null-region" selected="selected">Choose Region</option>
             <optgroup label="US">
-              <option value="us-east-1">us-east-1</option>
-              <option value="us-east-2">us-east-2</option>
-              <option value="us-west-1">us-west-1</option>
-              <option value="us-west-2">us-west-2</option>
+              <option value="us-east-1">US East N. Virginia (us-east-1)</option>
+              <option value="us-east-2">US East Ohio (us-east-2)</option>
+              <option value="us-west-1">US West N. California (us-west-1)</option>
+              <option value="us-west-2">US West Oregon (us-west-2)</option>
             </optgroup>
             <optgroup label="Asia Pacific">
-              <option value="ap-east-1">ap-east-1</option>
-              <option value="ap-northeast-1">ap-northeast-1</option>
-              <option value="ap-northeast-2">ap-northeast-2</option>
-              <option value="ap-northeast-3">ap-northeast-3</option>
-              <option value="ap-southeast-1">ap-southeast-1</option>
-              <option value="ap-southeast-2">ap-southeast-2</option>
-              <option value="ap-south-1">ap-south-1</option>
+              <option value="ap-east-1">Asia Pacific Hong Kong (ap-east-1)</option>
+              <option value="ap-northeast-1">Asia Pacific Tokyo (ap-northeast-1)</option>
+              <option value="ap-northeast-2">Asia Pacific Seoul (ap-northeast-2)</option>
+              <option value="ap-northeast-3">Asia Pacific Osaka-Local (ap-northeast-3)</option>
+              <option value="ap-southeast-1">Asia Pacific Singapore (ap-southeast-1)</option>
+              <option value="ap-southeast-2">Asia Pacific Sydney (ap-southeast-2)</option>
+              <option value="ap-south-1">Asia Pacific Mumbai (ap-south-1)</option>
             </optgroup>
             <optgroup label="Canada">
-              <option value="ca-central-1">ca-central-1</option>
+              <option value="ca-central-1">Canada Central (ca-central-1)</option>
             </optgroup>
             <optgroup label="China">
-              <option value="cn-north-1">cn-north-1</option>
-              <option value="cn-northwest-1">cn-northwest-1</option>
+              <option value="cn-north-1">China Beijing (cn-north-1)</option>
+              <option value="cn-northwest-1">China Ningxia (cn-northwest-1)</option>
             </optgroup>
             <optgroup label="EU">
-              <option value="eu-north-1">eu-north-1</option>
-              <option value="eu-central-1">eu-central-1</option>
-              <option value="eu-west-1">eu-west-1</option>
-              <option value="eu-west-2">eu-west-2</option>
-              <option value="eu-west-3">eu-west-3</option>
+              <option value="eu-north-1">EU Stockholm(eu-north-1)</option>
+              <option value="eu-central-1">EU Frankfurt (eu-central-1)</option>
+              <option value="eu-west-1">EU  Ireland(eu-west-1)</option>
+              <option value="eu-west-2">EU London(eu-west-2)</option>
+              <option value="eu-west-3">EU Paris(eu-west-3)</option>
             </optgroup>
             <optgroup label="South America">
-              <option value="sa-east-1">sa-east-1</option>
+              <option value="sa-east-1">South America Sao Paulo (sa-east-1)</option>
             </optgroup>
             <optgroup label="Middle East">
-              <option value="me-south-1">me-south-1</option>
+              <option value="me-south-1">Middle East Bahrain (me-south-1)</option>
             </optgroup>
             <optgroup label="GovCloud">
-              <option value="us-gov-east-1">us-gov-east-1</option>
-              <option value="us-gov-west-1">us-gov-west-1</option>
+              <option value="us-gov-east-1">AWS GovCloud US-East (us-gov-east-1)</option>
+              <option value="us-gov-west-1">AWS GovCloud US-West (us-gov-west-1)</option>
             </optgroup>
           </select>
           <!-- <label for="search">Enter name or id</label> -->
           <input type="text" name="search" id="search" form="search-form" type="search" autofocus mozactionhint="Search" placeholder="Enter name or id">
-          <button type="submit" name="searchbutton" id="searchbutton" form="search-form"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg></button>
+          <button type="submit" name="searchbutton" id="searchbutton" form="search-form"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg><span>Search</span></button>
         </div>
       </form>
     </div>
@@ -107,11 +108,11 @@
     </div>
   </section>
 
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <!-- Update notice, absolutely positioned -->
+  <a href="https://github.com/AMILookup/amilookup.com/releases/tag/1.1" id="update-notice"><strong>September 28th, 2019</strong> - Updated click here for changelog</a>
+
   <script src="js/vendor/jquery-3.3.1.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

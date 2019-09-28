@@ -1,10 +1,31 @@
-/* Browser Upgrade Prompt */
+// Browser Upgrade Prompt
 .browserupgrade {
   margin: 0.2em 0;
   background: #111;
   color: #ccc;
   margin: 0;
   padding: 0.5rem 0;
+}
+
+//Update Notice
+#update-notice {
+  background: #FFC378;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(black, .2);
+  bottom: 20px;
+  color: #A55C00;
+  display: block;
+  left: 50%;
+  margin-left: -544px;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(white, .25);
+  width: 1088px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 /*
@@ -17,12 +38,14 @@
  * Customize the background color to match your design.
  */
  ::-moz-selection {
-  background: #b3d4fc;
+  background: $link;
+  color: $headerBg;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: $link;
+  color: $headerBg;
   text-shadow: none;
 }
 
