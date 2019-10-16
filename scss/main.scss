@@ -4,6 +4,7 @@
 @import "bits";
 @import "forms";
 @import "structure";
+@import "header";
 @import "main-nav";
 @import "search-form";
 @import "results-component";
@@ -33,11 +34,7 @@ body {
   font-size: 1rem;
 }
 
-#header {
-  background: $headerBg url("../img/circuit-board-purple.svg") top left repeat;
-  color: $text;
-}
-
 .results {
+  margin-left: 400px;
   padding-top: 40px;
 }

@@ -1,7 +1,7 @@
 /* Search bar focus */
 $(function() {
   const search = $("#search");
-  const searchWrap = $("#search-form > div");
+  const searchWrap = $("#search-form .search");
 
   $(search).focusin(function() {
     searchWrap.addClass("search-focus");
@@ -57,7 +57,6 @@ function parseAMIOutput(responseData) {
     
     resultsContent[0].appendChild(rowdiv);
   }
-  
 };
 
 function amiLookup(ami, region) {
@@ -92,16 +91,23 @@ function amiLookup(ami, region) {
 const form = document.getElementById("search-form");
 form.addEventListener("submit", function(event) {
   const amiData = document.getElementById("search").value;
-  const regionData = document.getElementById("region-select").value;
+  const regionData = getCheckedValue("region-select");
+
   event.preventDefault();
 
   amiLookup(amiData, regionData);
+
+  console.log(amiData);
+  console.log(regionData);
 });
 
-// For some reason the below code doesnt work....
-const viewjson = document.getElementById('view-json');
-viewjson.addEventListener("submit", function(event) {
-  event.preventDefault();
-  console.log("Print JSON");
-  console.log(responseData);
-})
+
+function getCheckedValue(groupName) {
+  var radios = document.getElementsByName(groupName);
+  for(i = 0; i < radios.length; i++) {
+      if(radios[i].checked) {
+          return radios[i].value;
+      }
+  }
+  return null;
+}

@@ -1,6 +1,5 @@
 nav {
   border-bottom: 4px solid rgba(white, .1);
-  margin-bottom: 4rem;
   @extend .clearfix;
 
   h1 {
@@ -8,26 +7,29 @@ nav {
   }
   
   .title {
-    color: $richText;
-    display: inline-block;
-    font-size: 2rem;
-    padding: 0;
+    color: $sidebarTextLight;
+    display: block;
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
     text-decoration: none;
-    padding: 15px 0;
+    margin: 17px 0;
 
     &:hover {
       color: $link;
     }
   }
 
-  .pull-right {
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
 
     a {
       color: $richText;
       display: inline-block;
       font-size: 1.4rem;
-      margin: 0 20px;
-      padding: 21px 0;
+      //margin: 0 20px;
+      padding: 16px;
       position: relative;
       text-decoration: none;
 
