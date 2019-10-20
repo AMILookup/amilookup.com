@@ -1,0 +1,60 @@
+#header {
+  background: #232323;
+  bottom: 0;
+  color: $sidebarTextLight;
+  font-size: 18px;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  scrollbar-color: #5A5A5A #2E2E2E;
+  top: 0;
+  width: 400px;
+
+  .upper {
+    background: #131313;
+    height: 320px;
+    margin-bottom: -170px;
+  }
+
+  #region-select {
+    margin-top: 30px;
+  }
+
+  h3 {
+    color: $sidebarTextDark;
+    font-size: 20px;
+    margin: 21px 0 17px 0;
+    padding-left: 15px;
+  }
+
+  input[type=radio]:not(old) {
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 14px;
+  }
+
+  input[type=radio]:not(old) + label {
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 7px 0 7px 37px;
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+
+  input[type=radio]:not(old):checked + label {
+    background: $selectedRegionBg url('../img/checkmark.png') no-repeat 17px 10px;
+    color: $link;
+  }
+}
+
+#header::-webkit-scrollbar {
+  background: #2E2E2E;
+}
+
+#header::-webkit-scrollbar-thumb {
+  background: #5A5A5A;
+}

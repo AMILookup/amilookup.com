@@ -1,34 +1,15 @@
 #search-form {
-  margin-bottom: 4rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1088px;
+  margin: 30px 0;
 
-  > div {
+  .search {
     background: white;
     border-radius: $borderRadius;
     box-shadow: 0 2px 4px rgba(black, .24),0 4px 20px rgba(black, .24);
     display: flex;
     height: 60px;
-    opacity: .7;
+    margin: 0 22px;
     overflow: hidden;
     transition: .3s ease all;
-  }
-
-  #region-select {
-    background-color: #EBEBEB;
-    border: 1px solid transparent;
-    color: rgba(black, .4);
-    padding-left: 17px;
-    width: 300px;
-  }
-
-  #region-select::-ms-expand {
-    display: none;
-  }
-
-  #region-select option {
-    font-weight: normal;
   }
 
   #search {
@@ -44,10 +25,10 @@
   }
 
   button {
-    background: #EBEBEB;
+    background: transparent;
     border: 1px solid transparent;
     color: rgba(black, .4);
-    width: 84px;
+    padding: 0 15px;
 
     &:hover {
       background: #D9D9D9;
@@ -57,10 +38,6 @@
     &:hover > svg {
       opacity: 1;
     }
-
-    span {
-      display: block;
-    }
   }
 
   svg {
@@ -69,14 +46,8 @@
     width: 22px;
   } 
 
-  // .search-focus {
-  //   box-shadow: 0 0 0 2px #0099FF, 
-  //               0 0 20px 2px rgba(#57BCFF, .41);
-  // }
-
   .search-focus {
     box-shadow: 0 0 0 2px $link, 
                 0 0 20px 2px rgba($link, .41);
-  opacity: 1;
   }
 }
