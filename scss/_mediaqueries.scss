@@ -14,3 +14,18 @@
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
+
+
+@media all and (max-width: 1888px) {
+  #update-notice {
+    margin-left: -350px;
+    width: 1000px;
+  }
+}
+
+@media all and (max-width: 1500px) {
+  #update-notice {
+    margin-left: -225px;
+    width: 900px;
+  }
+}

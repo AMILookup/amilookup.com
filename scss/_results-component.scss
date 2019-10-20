@@ -1,6 +1,7 @@
 .results-component {
   background: $componentBg;
   border-radius: $borderRadius;
+  box-shadow: 0 4px 10px rgba(black, .35);
   overflow: hidden;
   margin-bottom: 30px;
 
@@ -32,36 +33,6 @@
     font-size: 1rem;
     margin-left: 1rem;
     opacity: .7;
-  }
-
-  .success-icon {
-    margin-right: 0.5rem;
-
-    svg {
-      background: #0BAC20;
-      border-radius: 100px;
-      fill: white;
-      height: 24px;
-      margin-top: -5px;
-      padding: 5px;
-      width: 24px;
-    }
-  }
-
-  .view-json {
-    background: $componentBg;
-    border: 1px solid transparent;
-    border-radius: $borderRadius;
-    color: $text;
-    cursor: pointer;
-    float: right;
-    padding: 7px 14px;
-    text-decoration: none;
-
-    &:hover {
-      background: #636898;
-      color: white;
-    }
   }
 }
 
