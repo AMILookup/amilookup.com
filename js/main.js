@@ -1,7 +1,15 @@
+// Get page elements
+const search = document.getElementById("search");
+const searchWrap = document.getElementById("search-form").getElementsByClassName("search")[0];
+const resultsComponent = document.querySelector("results-component");
+const resultsContent = document.getElementById("content");
+const resultsRow = document.querySelector("row");
+
+
 /* Search bar focus */
 $(function() {
-  const search = $("#search");
-  const searchWrap = $("#search-form .search");
+  let search = $("#search");
+  let searchWrap = $("#search-form .search");
 
   $(search).focusin(function() {
     searchWrap.addClass("search-focus");
