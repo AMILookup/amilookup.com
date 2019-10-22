@@ -1,24 +1,20 @@
 // Get page elements
+const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchWrap = document.getElementById("search-form").getElementsByClassName("search")[0];
-const resultsComponent = document.querySelector("results-component");
+const resultsComponent = document.getElementById("results-component");
 const resultsContent = document.getElementById("content");
 const resultsRow = document.querySelector("row");
 
+function deleteStuff() {
+  // Make the component visible
+  resultsComponent.classList.remove("hidden");
 
-/* Search bar focus */
-$(function() {
-  let search = $("#search");
-  let searchWrap = $("#search-form .search");
-
-  $(search).focusin(function() {
-    searchWrap.addClass("search-focus");
-  });
-
-  $(search).focusout(function() {
-    searchWrap.removeClass("search-focus");
-  });
-});
+  // Delete old rows
+  while(resultsContent.firstChild) {
+    resultsContent.removeChild(resultsContent.firstChild);
+  }
+};
 
 // Actual AMI Lookup stuff starts here.
 const amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
@@ -26,21 +22,11 @@ const xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
 
-
-$.deleteStuff = function() {
-  // Handle Component
-  $(".results-component").removeClass("hidden");
-
-  // Delete old rows
-  $(".row").remove();
-};
-
-
+// Parse the Json output
 function parseAMIOutput(responseData) {
   body = (responseData.body);
 
   for (let i in body) {
-    // const resultsHeader = document.getElementsByClassName("results-header");
     const resultsContent = document.getElementsByClassName("content");
     const rowdiv = document.createElement("div");
     const keyDiv = document.createElement("div");
@@ -82,13 +68,13 @@ function amiLookup(ami, region) {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       responseData = xhr.response;
 
-      $.deleteStuff();
+      deleteStuff();
       parseAMIOutput(responseData);
     }
     else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
       responseData = xhr.response;
       
-      $.deleteStuff();
+      deleteStuff();
       parseAMIOutput(responseData);
     }
   };
@@ -96,10 +82,9 @@ function amiLookup(ami, region) {
   xhr.send(JSON.stringify(requestData));
 };
 
-const form = document.getElementById("search-form");
 form.addEventListener("submit", function(event) {
-  const amiData = document.getElementById("search").value;
-  const regionData = getCheckedValue("region-select");
+  let amiData = document.getElementById("search").value;
+  let regionData = getCheckedValue("region-select");
 
   event.preventDefault();
 
@@ -107,6 +92,7 @@ form.addEventListener("submit", function(event) {
 
   console.log(amiData);
   console.log(regionData);
+  console.log("-- BREAK --"); // This helps me when looking at the console output
 });
 
 
