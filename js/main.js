@@ -1,7 +1,7 @@
 // Get page elements
 const form = document.getElementById("search-form");
 const search = document.getElementById("search");
-const searchWrap = document.getElementById("search-form").getElementsByClassName("search")[0];
+const loading = document.getElementById("loading");
 const resultsComponent = document.getElementById("results-component");
 const resultsContent = document.getElementById("content");
 const resultsRow = document.querySelector("row");
@@ -70,6 +70,7 @@ function amiLookup(ami, region) {
 
       deleteStuff();
       parseAMIOutput(responseData);
+      loading.classList.add("hidden");
     }
     else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
       responseData = xhr.response;
@@ -87,6 +88,7 @@ form.addEventListener("submit", function(event) {
   let regionData = getCheckedValue("region-select");
 
   event.preventDefault();
+  loading.classList.remove("hidden");
 
   amiLookup(amiData, regionData);
 
