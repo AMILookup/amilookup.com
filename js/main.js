@@ -86,11 +86,19 @@ function amiLookup(ami, region) {
 form.addEventListener("submit", function(event) {
   let amiData = document.getElementById("search").value;
   let regionData = getCheckedValue("region-select");
+  let regionErrorText = document.getElementById("region-error");
 
   event.preventDefault();
-  loading.classList.remove("hidden");
 
-  amiLookup(amiData, regionData);
+  if(regionData === null) {
+    console.log("no region selected");
+    regionErrorText.classList.remove("hidden");
+  } else {
+    console.log("region selected");
+    loading.classList.remove("hidden");
+    amiLookup(amiData, regionData);
+    regionErrorText.classList.add("hidden");
+  }
 
   console.log(amiData);
   console.log(regionData);
