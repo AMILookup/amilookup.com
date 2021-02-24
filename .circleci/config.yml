@@ -2,7 +2,7 @@ version: 2
 jobs:
   build_and_deploy:
     docker:
-      - image: circleci/15.9.0-buster
+      - image: cimg/node:15.10.0
     steps:
       - checkout
       # Install AWS CLI
