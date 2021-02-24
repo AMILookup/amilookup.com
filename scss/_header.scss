@@ -12,8 +12,6 @@
 
   .upper {
     background: #131313;
-    height: 320px;
-    margin-bottom: -170px;
   }
 
   #region-select {
@@ -35,7 +33,7 @@
   h3 {
     color: $sidebarTextDark;
     font-size: 20px;
-    margin: 21px 0 17px 0;
+    margin: .5rem 0 0 0;
     padding-left: 15px;
   }
 
@@ -47,10 +45,12 @@
   }
 
   input[type=radio]:not(old) + label {
+    border-radius: $borderRadius;
     cursor: pointer;
     display: block;
     line-height: 1;
-    padding: 7px 0 7px 37px;
+    margin: .5rem;
+    padding: 1rem 0 1rem 37px;
 
     &:hover {
       background-color: #131313;
@@ -58,7 +58,8 @@
   }
 
   input[type=radio]:not(old):checked + label {
-    background: $selectedRegionBg url('../img/checkmark.png') no-repeat 17px 10px;
+    background: $selectedRegionBg url('../img/checkmark.png') no-repeat 14px 18px;
+    box-shadow: 0 3px 7px rgba(black, .3);
     color: $link;
   }
 }
