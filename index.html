@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60119459-3"></script>
@@ -15,10 +15,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>AMI Lookup</title>
   <meta name="description" content="Search for currently available AWS AMI's">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="shortcut icon" href="favicon.ico" />
-
 
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -38,15 +36,11 @@
         </div>
       </nav>
     </div>
-    <form action="" id="search-form">
-      <div class="search search-focus">
-        <input type="text" name="search" id="search" form="search-form" type="search" autofocus mozactionhint="Search" placeholder="Enter name or id">
-        <button type="submit" name="searchbutton" id="searchbutton" form="search-form"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg></button>
-      </div>
+    <form id="search-form">
+      <input type="text" name="search" id="search" class="search" form="search-form" type="search" autofocus mozactionhint="Search" placeholder="Enter name or id">
+      <button type="submit" name="searchbutton" id="searchbutton" form="search-form"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg></button>
       <div id="region-select">
-        <input type="radio" id="null-region" name="region-select" value="null-region" checked>
-        <label for="null-region">Choose Region</label>
-
+        <h2 id="region-error" class="hidden">Please select a region</h2>
         <h3>US</h3>
         <input type="radio" id="us-east-1" name="region-select" value="us-east-1">
         <label for="us-east-1">US East N. Virginia (us-east-1)</label>
@@ -113,7 +107,8 @@
   </header>
   <section class="results">
     <div class="wrapper">
-      <article class="results-component hidden">
+      <div id="loading" class="hidden">Loading <span>Please wait while we fetch your AMI</span></div>
+      <article class="results-component hidden" id="results-component">
         <header class="results-header clearfix">
           <p>
             Results
@@ -126,19 +121,9 @@
       </article>
     </div>
     <!-- Update notice, absolutely positioned -->
-    <a href="https://github.com/AMILookup/amilookup.com/releases/tag/v1.2" id="update-notice"><strong>October 20th, 2019</strong> - New design! Click here for changelog</a>
+    <a id="update-notice" onclick="window.open('https://github.com/AMILookup/amilookup.com/releases/tag/v1.2')"><strong>October 20th, 2019</strong> - New design! Click here for changelog</a>
   </section>
-
-  <script src="js/vendor/jquery-3.3.1.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 
 </html>

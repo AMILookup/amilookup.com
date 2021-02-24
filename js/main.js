@@ -1,16 +1,20 @@
-/* Search bar focus */
-$(function() {
-  const search = $("#search");
-  const searchWrap = $("#search-form .search");
+// Get page elements
+const form = document.getElementById("search-form");
+const search = document.getElementById("search");
+const loading = document.getElementById("loading");
+const resultsComponent = document.getElementById("results-component");
+const resultsContent = document.getElementById("content");
+const resultsRow = document.querySelector("row");
 
-  $(search).focusin(function() {
-    searchWrap.addClass("search-focus");
-  });
+function deleteStuff() {
+  // Make the component visible
+  resultsComponent.classList.remove("hidden");
 
-  $(search).focusout(function() {
-    searchWrap.removeClass("search-focus");
-  });
-});
+  // Delete old rows
+  while(resultsContent.firstChild) {
+    resultsContent.removeChild(resultsContent.firstChild);
+  }
+};
 
 // Actual AMI Lookup stuff starts here.
 const amiLookupAPI = "https://4l1ispv7ia.execute-api.us-east-1.amazonaws.com/dev/ami";
@@ -18,21 +22,11 @@ const xhr = new XMLHttpRequest(),
   method = "POST",
   url = amiLookupAPI;
 
-
-$.deleteStuff = function() {
-  // Handle Component
-  $(".results-component").removeClass("hidden");
-
-  // Delete old rows
-  $(".row").remove();
-};
-
-
+// Parse the Json output
 function parseAMIOutput(responseData) {
   body = (responseData.body);
 
   for (let i in body) {
-    // const resultsHeader = document.getElementsByClassName("results-header");
     const resultsContent = document.getElementsByClassName("content");
     const rowdiv = document.createElement("div");
     const keyDiv = document.createElement("div");
@@ -74,13 +68,14 @@ function amiLookup(ami, region) {
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       responseData = xhr.response;
 
-      $.deleteStuff();
+      deleteStuff();
       parseAMIOutput(responseData);
+      loading.classList.add("hidden");
     }
     else if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 500) {
       responseData = xhr.response;
       
-      $.deleteStuff();
+      deleteStuff();
       parseAMIOutput(responseData);
     }
   };
@@ -88,17 +83,26 @@ function amiLookup(ami, region) {
   xhr.send(JSON.stringify(requestData));
 };
 
-const form = document.getElementById("search-form");
 form.addEventListener("submit", function(event) {
-  const amiData = document.getElementById("search").value;
-  const regionData = getCheckedValue("region-select");
+  let amiData = document.getElementById("search").value;
+  let regionData = getCheckedValue("region-select");
+  let regionErrorText = document.getElementById("region-error");
 
   event.preventDefault();
 
-  amiLookup(amiData, regionData);
+  if(regionData === null) {
+    console.log("no region selected");
+    regionErrorText.classList.remove("hidden");
+  } else {
+    console.log("region selected");
+    loading.classList.remove("hidden");
+    amiLookup(amiData, regionData);
+    regionErrorText.classList.add("hidden");
+  }
 
   console.log(amiData);
   console.log(regionData);
+  console.log("-- BREAK --"); // This helps me when looking at the console output
 });
 
 
