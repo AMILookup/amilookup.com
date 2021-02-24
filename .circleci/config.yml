@@ -10,7 +10,7 @@ jobs:
       #     https://github.com/circleci/circleci-images/issues/53
       # - use global install for aws and pip instead of --user:
       #     https://discuss.circleci.com/t/how-to-add-a-path-to-path-in-circle-2-0/11554
-      - run: sudo apt-get update && sudo apt-get install -qq -y python-pip libpython-dev jq
+      - run: sudo apt-get update && sudo apt-get install -qq -y python3-pip libpython-dev jq
       - run: curl -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
       - run: sudo pip3 install -q awscli --upgrade
       - run:
